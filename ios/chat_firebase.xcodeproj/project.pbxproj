@@ -37,6 +37,8 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CEE94485C7174D1EA5155760 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B70AEEEBCD412BA889039F /* libRCTFBSDK.a */; };
+		504ED3F302924D96842C17C3 /* Cabo Slab Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB1CA9E4156D44A7B87594BC /* Cabo Slab Italic.otf */; };
+		5180AABA498A468A88157035 /* Cabo Slab Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 967B9607F1F14867BCD329B3 /* Cabo Slab Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +268,8 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		BFC0BC98886F4073AFEB639D /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; name = "RCTFBSDK.xcodeproj"; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		14B70AEEEBCD412BA889039F /* libRCTFBSDK.a */ = {isa = PBXFileReference; name = "libRCTFBSDK.a"; path = "libRCTFBSDK.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		BB1CA9E4156D44A7B87594BC /* Cabo Slab Italic.otf */ = {isa = PBXFileReference; name = "Cabo Slab Italic.otf"; path = "../fonts/Cabo Slab Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		967B9607F1F14867BCD329B3 /* Cabo Slab Regular.otf */ = {isa = PBXFileReference; name = "Cabo Slab Regular.otf"; path = "../fonts/Cabo Slab Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,6 +488,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* chat_firebaseTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				5636DC7063BA4710BE75221B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -508,6 +513,16 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		5636DC7063BA4710BE75221B /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				BB1CA9E4156D44A7B87594BC /* Cabo Slab Italic.otf */,
+				967B9607F1F14867BCD329B3 /* Cabo Slab Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -878,6 +893,8 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				504ED3F302924D96842C17C3 /* Cabo Slab Italic.otf in Resources */,
+				5180AABA498A468A88157035 /* Cabo Slab Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
