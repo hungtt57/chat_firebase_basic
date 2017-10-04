@@ -9,9 +9,7 @@ class AppNavigator extends Component {
                 navigation={addNavigationHelpers({
                     dispatch:this.props.dispatch,
                     state:this.props.nav
-                })}
-            >
-
+                })}>
             </RootNavigation>
         );
     }

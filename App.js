@@ -12,9 +12,10 @@ import {
     View, TouchableOpacity,
     ActivityIndicator
 } from 'react-native';
-import firebase from 'firebase';
+
 import {LoginButton, AccessToken, LoginManager} from 'react-native-fbsdk';
 
+import firebase from 'firebase';
 const config = {
     apiKey: "AIzaSyCqnc15DKCz9sZRDLCiqblYYszwnyV493o",
     authDomain: "chat-firebase-basic.firebaseapp.com",

@@ -1,24 +1,101 @@
-import React,{Component} from 'react';
-import {View,Text} from 'react-native';
+import React, {Component} from 'react';
+import {View, Text,ActivityIndicator,TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-class Login extends  Component {
-    componentDidMount() {
-        console.log('ComponentDidMount',this.props);
+import {AccessToken, LoginManager} from 'react-native-fbsdk';
+import {loginSuccess} from "../actions/Authenticate";
+import firebase from 'firebase';
+const config = {
+    apiKey: "AIzaSyCqnc15DKCz9sZRDLCiqblYYszwnyV493o",
+    authDomain: "chat-firebase-basic.firebaseapp.com",
+    databaseURL: "https://chat-firebase-basic.firebaseio.com",
+    projectId: "chat-firebase-basic",
+    storageBucket: "chat-firebase-basic.appspot.com",
+    messagingSenderId: "164385664533"
+};
+firebase.initializeApp(config);
+
+class Login extends Component {
+
+    constructor() {
+        super();
+
+        console.ignoredYellowBox = [
+            'Setting a timer'
+        ];
     }
+
+    static navigationOptions = {
+        header: null
+    };
+    state = {
+        logged: false,
+        animating: false
+    };
+    onLogin = async () => {
+        try {
+            this.setState({
+                animating: true
+            });
+            const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+            const tokenData = await AccessToken.getCurrentAccessToken();
+            const token = tokenData.accessToken.toString();
+            const credential = firebase.auth.FacebookAuthProvider.credential(token);
+            const user = await  firebase.auth().signInWithCredential(credential);
+            this.setState({
+                logged: true,
+                animating: false
+            });
+            //
+            this.props.loginSuccess(user);
+            // let uid = user.uid;
+            // firebase.database().ref('/users/' + uid + '/profile').set({
+            //     name: user.displayName,
+            //     email: user.email,
+            //     avatar: user.photoURL
+            // });
+
+
+        } catch (error) {
+            this.setState({
+                animating: false
+            });
+            console.log(error.message);
+            //do something here
+        }
+
+
+    }
+
     render() {
         return (
-            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <Text style={{fontSize:20,color:'red'}}> Login</Text>
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <ActivityIndicator
+                    animating={this.state.animating}
+                    color="#ddd"
+                    size="large"
+                />
+                <TouchableOpacity
+                    onPress={this.onLogin}
+                    style={{
+                        marginTop: 10,
+                        padding: 10,
+                        backgroundColor: '#3b5998',
+                        borderRadius: 5
+                    }}
+                >
+                    <Text style={{color: 'white'}}> Login with Facebook</Text>
+                </TouchableOpacity>
 
             </View>
         );
     }
 }
+
 const mapStateToProps = (state) => {
     console.log(state);
     return {
-        logged:state.authentication.loggedIn,
-        user : state.authentication.user
+        logged: state.authentication.loggedIn,
+        user: state.authentication.user
     };
 };
-export  default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps,{loginSuccess})(Login);
