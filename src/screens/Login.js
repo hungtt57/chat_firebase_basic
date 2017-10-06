@@ -29,21 +29,27 @@ class Login extends Component {
     };
     state = {
         logged: false,
-        animating: false
+        animating: false,
+        error : ''
     };
     onLogin = async () => {
         try {
             this.setState({
-                animating: true
+                animating: true,
+                error : ''
             });
             const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+            if(result.isCancelled) {
+                throw new Error('Please sign in before continue');
+            }
             const tokenData = await AccessToken.getCurrentAccessToken();
             const token = tokenData.accessToken.toString();
             const credential = firebase.auth.FacebookAuthProvider.credential(token);
             const user = await  firebase.auth().signInWithCredential(credential);
             this.setState({
                 logged: true,
-                animating: false
+                animating: false,
+                error : ''
             });
             //
             this.props.loginSuccess(user);
@@ -57,9 +63,10 @@ class Login extends Component {
 
         } catch (error) {
             this.setState({
-                animating: false
+                animating: false,
+                error : error.message
             });
-            console.log(error.message);
+
             //do something here
         }
 
@@ -74,6 +81,12 @@ class Login extends Component {
                     color="#ddd"
                     size="large"
                 />
+                {
+                    this.state.error ? (
+                            <Text style={styles.error}> {this.state.error}</Text>
+                        ) : null
+
+                }
                 <TouchableOpacity
                     onPress={this.onLogin}
                     style={{
@@ -91,6 +104,12 @@ class Login extends Component {
     }
 }
 
+const styles = {
+    error : {
+        fontSize:18,
+        color :'red'
+    }
+}
 const mapStateToProps = (state) => {
     console.log(state);
     return {
