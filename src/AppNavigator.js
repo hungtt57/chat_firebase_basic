@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {addNavigationHelpers} from 'react-navigation';
-import RootNavigation from './navigations/RootNavigation';
+import RootNavigation from './navigations/Root';
 import {connect} from 'react-redux';
 class AppNavigator extends Component {
     render() {

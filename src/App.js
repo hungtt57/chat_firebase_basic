@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Login from './screens/Login';
+import Login from './screens/unauthorized/Login';
 import Chat from './screens/Chat';
 import {Provider} from 'react-redux';
 import {AppRegistry} from 'react-native';

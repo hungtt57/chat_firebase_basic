@@ -4,11 +4,12 @@
 # remove override fbsdk.java
 
 
-# add fonts,T?o th? m?c fonts copy font v?
-# add "rnpm" : {
+# add fonts,Tao them một fonts copy font vậy?
+###### add "rnpm" : {
       		"assets" : [
       			"./fonts"
       		]
       	},
  # v? package.json r?i react-native link
-
+![GitHub Logo](/react.PNG)
+Format: ![Alt Text](url)

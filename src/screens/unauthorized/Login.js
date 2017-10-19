@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text,ActivityIndicator,TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {AccessToken, LoginManager} from 'react-native-fbsdk';
-import {loginSuccess} from "../actions/Authenticate";
+import {loginSuccess} from "../../actions/Authenticate";
 import firebase from 'firebase';
 const config = {
     apiKey: "AIzaSyCqnc15DKCz9sZRDLCiqblYYszwnyV493o",
@@ -23,7 +23,6 @@ class Login extends Component {
             'Setting a timer'
         ];
     }
-
     static navigationOptions = {
         header: null
     };
