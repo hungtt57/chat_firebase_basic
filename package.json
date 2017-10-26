@@ -7,13 +7,14 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"firebase": "^4.4.0",
+		"firebase": "^4.6.0",
 		"link": "^0.1.5",
-		"react": "16.0.0-alpha.12",
-		"react-native": "^0.44",
-		"react-native-fbsdk": "facebook/react-native-fbsdk",
-		"react-native-vector-icons": "^4.4.0",
-		"react-navigation": "^1.0.0-beta.13",
+		"lodash": "^4.17.4",
+		"react": "16.0.0-alpha.6",
+		"react-native": "^0.44.3",
+		"react-native-fbsdk": "^0.6.3",
+		"react-native-vector-icons": "^4.4.2",
+		"react-navigation": "^1.0.0-beta.15",
 		"react-redux": "^5.0.6",
 		"redux": "^3.7.2",
 		"redux-thunk": "^2.2.0"

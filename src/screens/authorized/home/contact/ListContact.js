@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {View,Text} from 'react-native';
+import {View,Text,Button} from 'react-native';
 import {DrawerButton} from "../../../../components";
 
 class ListContact extends  Component {
@@ -15,6 +15,7 @@ class ListContact extends  Component {
         return (
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
                 <Text>List contact</Text>
+                <Button onPress={() => this.props.navigation.navigate('Add')} title='GOto add'></Button>
             </View>
         )
     }

@@ -2,9 +2,8 @@ import {TabNavigator} from 'react-navigation';
 import TabContact from './TabContact';
 import TabChat from './TabChat';
 import TabGroup from './TabGroup';
-
-import React from 'react';
 import {Image} from 'react-native';
+import React from 'react';
 const Home = TabNavigator({
     TabContact: {
         screen: TabContact,
@@ -56,6 +55,15 @@ const Home = TabNavigator({
             backgroundColor: '#fff',
         },
     },
+    navigationOptions : {
+        drawerLabel: 'Home',
+        drawerIcon: ({ tintColor }) => (
+            <Image
+                source={require('../img/icons/home.png')}
+                style={[styles.icon, {tintColor: tintColor}]}
+            />
+        ),
+    }
 });
 const styles = {
     icon : {
