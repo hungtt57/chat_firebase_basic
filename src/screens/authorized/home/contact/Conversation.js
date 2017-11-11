@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text} from 'react-native';
-class EditContact extends  Component {
+class Conversation extends  Component {
+
     render() {
         return (
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
@@ -9,4 +10,4 @@ class EditContact extends  Component {
         )
     }
 }
-export default EditContact
+export default Conversation
