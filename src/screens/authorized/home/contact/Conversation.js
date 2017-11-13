@@ -36,7 +36,6 @@ class Conversation extends  Component {
 
     }
     onSend = (messages = []) => {
-      console.log('onSend',messages);
       const {me,roomKey} = this.props;
         const {friend} = this.props.navigation.state.params;
       this.props.sendMessage(me,friend,messages[0].text,roomKey);
