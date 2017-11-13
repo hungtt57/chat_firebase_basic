@@ -2,7 +2,8 @@ import {
     FETCH_ROOM_SUCCESS,
     FETCH_ROOM_ERROR,
     FECTH_MESSAGE_SUCCESS,
-    FECTH_MESSAGE_ERROR
+    FECTH_MESSAGE_ERROR,
+    REGISTER_ROOM
 } from '../actions/types';
 
 const INITIAL = {
@@ -16,6 +17,8 @@ export default (state = INITIAL ,action) => {
             return {...INITIAL,loading:false,roomKey: action.roomKey};
         case FETCH_ROOM_ERROR :
             return {...INITIAL,loading:false};
+        case REGISTER_ROOM :
+            return {...state,roomKey : action.roomKey};
         case FECTH_MESSAGE_SUCCESS :
             return {...state,loading:false,messages: action.messages};
         case FECTH_MESSAGE_ERROR :

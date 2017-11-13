@@ -16,9 +16,8 @@ class ListContact extends  Component {
     });
 
     componentWillMount() {
-        console.log('LIST CONTACT');
         this.props.fetchListContact(this.props);
-        console.log(this.props.contacts);
+
     }
     // createDataSource({contacts}) {
     //     const ds = new Fl
@@ -26,13 +25,13 @@ class ListContact extends  Component {
     componentWillReceiveProps(nextProps) {
 
     }
+    onRowPressed = (friend) => {
+        this.props.navigation.navigate('Conversation',{friend});
+    };
     _renderItem = ({item}) => {
-        console.log('view item');
-        console.log(item);
-
         return (
             <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('Conversation',{friend :item})}
+                onPress={this.onRowPressed.bind(this,item)}
                               style={styles.row}
             >
                 <Image style={styles.avatar}  source={{uri: item.photoURL}}/>
@@ -42,7 +41,7 @@ class ListContact extends  Component {
     };
     render() {
         if(this.props.loading) {
-          return (<View style={styles.container}>
+          return (<View style={styles.containerIndicator}>
                 <ActivityIndicator size="large" color="purple" animating />
 
             </View>);
@@ -53,7 +52,7 @@ class ListContact extends  Component {
                     data={this.props.contacts}
                     extraData={this.state}
                     keyExtractor={(item, index) => index}
-                    renderItem={this._renderItem}
+                    renderItem={this._renderItem.bind(this)}
                 />
             </View>
         )

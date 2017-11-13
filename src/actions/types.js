@@ -18,6 +18,7 @@ export const FECTH_MESSAGE_ERROR = 'FETCH_MESSAGE_ERROR';
 * */
 export const FETCH_ROOM_SUCCESS = 'FETCH_ROOM_SUCCESS';
 export const FETCH_ROOM_ERROR = 'FETCH_ROOM_ERROR';
+export const REGISTER_ROOM = 'REGISTER_ROOM';
 
 /*
 *

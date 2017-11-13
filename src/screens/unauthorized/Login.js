@@ -52,12 +52,12 @@ class Login extends Component {
             });
             //
             this.props.loginSuccess(user);
-            // let uid = user.uid;
-            // firebase.database().ref('/users/' + uid + '/profile').set({
-            //     name: user.displayName,
-            //     email: user.email,
-            //     avatar: user.photoURL
-            // });
+            let uid = user.uid;
+            firebase.database().ref('/users/' + uid + '/profile').set({
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL
+            });
 
 
         } catch (error) {
@@ -110,7 +110,6 @@ const styles = {
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         logged: state.authentication.loggedIn,
         user: state.authentication.user

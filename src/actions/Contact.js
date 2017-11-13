@@ -13,27 +13,23 @@ export const fetchListContact = ({me }) => {
         firebase.database().ref('users')
             .on('value', snap => {
                 const contacts = [];
-                console.log('list');
-
                 snap.forEach(contact => {
                     if (contact.key !== me.uid) {
                         const ct = contact.val().profile;
-
+                        let displayName = ct.displayName;
                         contacts.push({
                             uid: contact.key,
-                            displayName: ct.name,
+                            displayName:displayName,
                             email: ct.email,
-                            photoURL: ct.avatar
+                            photoURL: ct.photoURL
                         });
                     }
                 });
-                console.log(contacts);
                 dispatch({
                     type: FETCH_CONTACT_SUCCESS,
                     contacts
                 });
             }, error => {
-                console.log('error', error);
                 dispatch({
                     type: FETCH_CONTACT_ERROR,
                 });
